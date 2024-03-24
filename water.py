@@ -57,6 +57,10 @@ driver.find_element(By.XPATH, '//*[@id="row0myBookingInfosTable"]/td[1]/a[2]').c
 time.sleep(3)
 driver.find_element(By.XPATH, '//*[@id="buttons"]/button[1]').click()
 
+asdhaksjdhakjsdh = 1
+
 # https://olepay.szu.edu.cn/Order/CreateOrder 这个网址目前没有被添加到校内VPN白名单了
 
 time.sleep(60)
+
+#apply > div.rectangle-2 > div:nth-child(10) > div:nth-child(2) > label > div.element
