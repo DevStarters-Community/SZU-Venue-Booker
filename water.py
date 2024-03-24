@@ -1,6 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+username = os.getenv('USERNAME')
+password = os.getenv('PASSWORD')
 
 # 打开Chrome 并 直接进入场馆预约的界面
 driver = webdriver.Chrome()
@@ -8,8 +14,8 @@ driver.get("https://ehall.szu.edu.cn/qljfwapp/sys/lwSzuCgyy/index.do#/sportVenue
 
 
 # 自动进入的情况下，需要先输入账号密码并点击登录按钮
-driver.find_element(By.XPATH, '//*[@id="username"]').send_keys('395668')
-driver.find_element(By.XPATH, '//*[@id="password"]').send_keys('11196114')
+driver.find_element(By.XPATH, '//*[@id="username"]').send_keys(username)
+driver.find_element(By.XPATH, '//*[@id="password"]').send_keys(password)
 driver.find_element(By.XPATH, '//*[@id="casLoginForm"]/p[5]/button').click()
 
 # 等待3秒钟加载元素，选择“粤海校区”并点击
