@@ -26,9 +26,16 @@ driver.find_element(By.XPATH, '//*[@id="sportVenue"]/div[1]/div/div[1]').click()
 time.sleep(3)
 driver.find_element(By.XPATH, '//*[@id="sportVenue"]/div[2]/div[2]/div[2]/div[5]/div/div[1]/div/img').click()
 
-# 等待3秒钟加载元素，选择“当天19:00-20:00”并点击
+# 等待3秒钟加载元素，选择并点击
 time.sleep(3)
-driver.find_element(By.XPATH, '//*[@id="apply"]/div[3]/div[6]/div[12]/label/div[2]').click()
+available_time_slots = driver.find_elements(By.XPATH, '//div[@class="element" and contains(@style, "rgb(29, 33, 41)")]')
+if available_time_slots:
+    available_time_slots[0].click()  # 点击第一个可预约的时间段
+    print("已选择第一个可预约的时间段。")
+else:
+    print("没有找到可预约的时间段。")
+
+# driver.find_element(By.XPATH, '//*[@id="apply"]/div[3]/div[6]/div[12]/label/div[2]').click()
 
 # 等待3秒钟加载元素，选择“东馆室内篮球场”并点击
 time.sleep(3)
